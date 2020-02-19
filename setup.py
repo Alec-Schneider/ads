@@ -13,8 +13,8 @@ setup(
     long_description=long_description,
     url="https://github.com/Alec-Schneider/ads",
     packages=find_packages(),
-    classifiers=[
-        "Programming Language :: Python :: 3",
-    ],
-    python_requires='>=3.7'
+    # classifiers=[
+    #     "Programming Language :: Python :: 3",
+    # ],
+    python_requires='>=3.0'
 )
