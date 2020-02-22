@@ -1,1 +1,0 @@
-message = "This is comingfrom ads.core!!\nCongrats on creating and installing your own pythpn package!"

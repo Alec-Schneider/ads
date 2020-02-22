@@ -1,5 +1,2 @@
-print("hi")
-from ads.core import message
-
-
-print(message)
+from ads.core.api import (merge_files)
+# import ads.core.streaming as streaming
