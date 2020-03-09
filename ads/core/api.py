@@ -30,7 +30,6 @@ def get_data(file_path, **kwargs):
     elif file_type in ['ftr']:
         data = pd.read_feather(file_path, **kwargs)
     else:
-
     return data
 
 
