@@ -19,14 +19,14 @@ def get_pearsonr(X, y):
     return pd.DataFrame(corrs, columns=['Pearson Coefficient', 'Two-Tailed p-value'], index=X.columns)
 
 
-def adjusted_r2(r2, X):
+def adjusted_r2(r2, n, p):
     """
     r2:
         R^2 of the model
-    X:
+    n:
         data used to get the R^2 of the model
+    p: int
 
     the adjusted R^2
     """
-    n, p = X.shape
     return 1 - (((1 - r2) * (n - 1)) / (n - p - 1))
