@@ -2,10 +2,7 @@
 functions for working with fangraphs datasets
 
 """
-
-import numpy as np
 import pandas as pd
-from functools import reduce
 
 
 def clean_pcts(x):

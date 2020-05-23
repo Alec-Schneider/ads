@@ -35,9 +35,9 @@ def fit_xgbr(model, X_train, y_train, params=None, scoring='rmse',  useCV=True, 
     #     'rmse': (mean_squared_error, {'squared': False})
     # }
 
-    if scoring == 'rmse'
+    if scoring == 'rmse':
         print('Training %s: %.4g' % (scoring , mean_squared_error(y_train, train_preds, squared=False)))
-    elif == 'mse':
+    elif scoring == 'mse':
         print('Training %s: %.4g' % (scoring , mean_squared_error(y_train, train_preds)))
     feat_imp = pd.Series(model.feature_importances_, index=params).sort_values(ascending=False)
     fig = plt.figure(figsize=(12,12))

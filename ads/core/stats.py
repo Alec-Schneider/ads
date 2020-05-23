@@ -1,4 +1,6 @@
+import pandas as pd
 from scipy.stats import pearsonr
+import numpy as np
 
 
 def get_pearsonr(X, y):
@@ -30,3 +32,17 @@ def adjusted_r2(r2, n, p):
     the adjusted R^2
     """
     return 1 - (((1 - r2) * (n - 1)) / (n - p - 1))
+
+
+def odds(prob):
+    """
+    return the odds of an event occuring given its probability of occuring
+    """
+    return prob / (1 - prob)
+
+
+def log_odds(prob):
+    """
+    return the log odd of an event occuring given its probablity of occuring
+    """
+    return np.log(odds(prob))
