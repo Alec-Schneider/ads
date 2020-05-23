@@ -10,7 +10,7 @@ def get_data(file_path, **kwargs):
     ------------
     file_path: str, required.
         path to .csv or .xlsx file to read
-    kwargs
+    kwargs:
     chunksize:
         amount of rows to read
 
@@ -18,8 +18,10 @@ def get_data(file_path, **kwargs):
     ------------
     iostream of DataFrames
     """
+    file_type = file_path.split('.')[-1]
     assert (file_type in ('csv', 'txt', 'xlsx', 'ftr')), \
             'Only .xslx, .csv, .txt, and .ftr files can be passed to function'
+
 
     # creating data as None incase neither of conditions are
     file_type = file_path.split('.')[-1]
@@ -29,7 +31,7 @@ def get_data(file_path, **kwargs):
         data = pd.read_excel(file_path, **kwargs)
     elif file_type in ['ftr']:
         data = pd.read_feather(file_path, **kwargs)
-    else:
+
     return data
 
 

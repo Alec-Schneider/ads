@@ -4,7 +4,10 @@ import multiprocessing as mp
 from ads.core.api import get_data
 
 def stream_sums(chunks):
-    sums = pd.Series(dtype='number')
+    """
+    
+    """
+    sums = pd.Series(dtype='float')
     nrows = 0
     nulls = 0
 

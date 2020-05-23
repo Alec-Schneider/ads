@@ -2,10 +2,20 @@ import xgboost as xgb
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.metrics import mean_squared_error
 
-def fit_model(model, X_train, y_train, X_test, y_test, params=None, scoring='rmse',  useCV=True, folds=5, early_stopping_rounds=50, seed=100):
+def fit_xgbr(model, X_train, y_train, params=None, scoring='rmse',  useCV=True, folds=5, early_stopping_rounds=50, seed=100, file_path=None):
     """
-    
+    model: XGBRegressor model; required
+        path to file
+    X_train: DataFrame
+        training data
+    y_train: DataFrame
+        target variable
+    params:
+        parameters of X_train to use on the bot
+    scoring:
+            
     """
     if not params:
         params = X_train.columns
@@ -21,11 +31,14 @@ def fit_model(model, X_train, y_train, X_test, y_test, params=None, scoring='rms
     
     # predict training set
     train_preds = model.predict(X_train[params].values)
-    test_preds = model.predict(X_test[params].values)
-    #train_predprob = model.predict_proba(X[params])[:, 1]
-    
-    print('Training %s: %.4g' % (scoring ,np.sqrt(mean_squared_error(y_train, train_preds))))
-    print('Test %s: %.4g' % (scoring, np.sqrt(mean_squared_error(y_test, test_preds))))
+    # metrics = {
+    #     'rmse': (mean_squared_error, {'squared': False})
+    # }
+
+    if scoring == 'rmse'
+        print('Training %s: %.4g' % (scoring , mean_squared_error(y_train, train_preds, squared=False)))
+    elif == 'mse':
+        print('Training %s: %.4g' % (scoring , mean_squared_error(y_train, train_preds)))
     feat_imp = pd.Series(model.feature_importances_, index=params).sort_values(ascending=False)
     fig = plt.figure(figsize=(12,12))
     feat_imp.plot(kind='bar', title='Feature Importances')
